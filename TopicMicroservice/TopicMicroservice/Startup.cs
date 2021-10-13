@@ -15,6 +15,7 @@ namespace TopicMicroservice
 {
     public class Startup
     {
+        // dev
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
