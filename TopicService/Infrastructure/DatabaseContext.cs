@@ -11,8 +11,7 @@ namespace TopicService.Infrastructure
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-            //Database.EnsureDeleted();
-            Database.EnsureCreated();
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
