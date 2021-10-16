@@ -11,11 +11,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TopicMicroservice
+namespace Api
+
 {
     public class Startup
     {
-        // dev
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
