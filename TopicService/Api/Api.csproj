@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <AssemblyName>Api</AssemblyName>
-    <RootNamespace>Api</RootNamespace>
+    <AssemblyName>TopicService.Api</AssemblyName>
+    <RootNamespace>TopicService.Api</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
