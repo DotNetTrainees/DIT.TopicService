@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TopicService.Application.Commands.TopicCommands;
 using TopicService.Application.Models.DataTransferObjects.Incoming.Topic;
+using TopicService.Application.Queries.TopicQueries;
 
 namespace TopicService.Api.Controllers
 {
@@ -27,6 +28,14 @@ namespace TopicService.Api.Controllers
                 {
                     Topic = dto
                 });
+
+            return Ok(result);
+        }
+
+        [HttpGet("get_all")]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _mediator.Send(new GetAllTopicQuery());
 
             return Ok(result);
         }
