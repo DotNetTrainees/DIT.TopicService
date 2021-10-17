@@ -29,6 +29,8 @@ namespace TopicService.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureControllers();
+            services.ConfigureVersioning();
+            services.ConfigureSwagger();
             services.ConfigureDatabaseContext(Configuration);
             services.ConfigureRepositoryManager();
             services.ConfigureMapper();
@@ -52,6 +54,12 @@ namespace TopicService.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
             });
         }
     }

@@ -10,7 +10,9 @@ using TopicService.Application.Models.DataTransferObjects.Incoming.Topic;
 namespace TopicService.Api.Controllers
 {
     [ApiController]
-    [Route("topic")]
+    [ApiVersion("1.0")]
+    [ApiExplorerSettings(GroupName = "v1")]
+    [Route("v{version:apiVersion}/topic")]
     public class TopicController : ControllerBase
     {
         private readonly IMediator _mediator;
