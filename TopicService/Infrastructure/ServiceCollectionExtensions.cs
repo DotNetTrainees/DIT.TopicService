@@ -13,5 +13,10 @@ namespace TopicService.Infrastructure
                     configuration.GetConnectionString("DatabaseConnection"), 
                     b => b.MigrationsAssembly("TopicService.Infrastructure")));
         }
+
+        public static void ConfigureRepositoryManager(this IServiceCollection services)
+        {
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
+        }
     }
 }
