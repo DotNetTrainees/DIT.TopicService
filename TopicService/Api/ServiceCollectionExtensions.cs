@@ -17,7 +17,7 @@ namespace TopicService.Api
             {
                 s.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "topic_servicei_v1",
+                    Title = "topic_service_v1",
                     Version = "v1",
                     Description = "dev"
                 });

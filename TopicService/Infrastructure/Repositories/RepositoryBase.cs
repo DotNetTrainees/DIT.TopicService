@@ -10,7 +10,7 @@ namespace TopicService.Infrastructure.Repositories
     {
         Task<TEntity> GetAsync(Guid id, CancellationToken cancellationToken);
         Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken);
-        Task<TEntity> InsertAsync(TEntity entity);
+        Task<TEntity> CreateAsync(TEntity entity);
         Task<TEntity> UpdateAsync(TEntity entity);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
@@ -36,7 +36,7 @@ namespace TopicService.Infrastructure.Repositories
                 .ToListAsync(cancellationToken);
         }
 
-        public async Task<TEntity> InsertAsync(TEntity entity)
+        public async Task<TEntity> CreateAsync(TEntity entity)
         {
             _context.Set<TEntity>().Add(entity);
             await _context.SaveChangesAsync();
