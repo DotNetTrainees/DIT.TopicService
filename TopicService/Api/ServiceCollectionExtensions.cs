@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using TopicService.Api.Filters;
+using TopicService.Data.Entities;
 
 namespace TopicService.Api
 {
@@ -22,6 +24,13 @@ namespace TopicService.Api
                     Description = "dev"
                 });
             });
+        }
+
+        public static void ConfigureFilters(this IServiceCollection services)
+        {
+            services.AddScoped<ValidateModelFilter>();
+            services.AddScoped<ValidateEntityExistsFilter<Topic>>();
+            services.AddScoped<ValidateEntityExistsFilter<Reply>>();
         }
     }
 }

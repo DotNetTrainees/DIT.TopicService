@@ -10,6 +10,7 @@ namespace TopicService.Application.Models
         public MappingProfile()
         {
             CreateMap<CreateTopicDTO, Topic>();
+            CreateMap<UpdateTopicDTO, Topic>();
             CreateMap<Topic, TopicDTO>();
         }
     }

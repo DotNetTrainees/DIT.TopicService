@@ -33,6 +33,7 @@ namespace TopicService.Api
             services.ConfigureSwagger();
             services.ConfigureDatabaseContext(Configuration);
             services.ConfigureRepositoryManager();
+            services.ConfigureFilters();
             services.ConfigureMapper();
             services.ConfigureMediator();
         }
