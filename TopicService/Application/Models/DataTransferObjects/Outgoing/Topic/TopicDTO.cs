@@ -5,9 +5,6 @@ namespace TopicService.Application.Models.DataTransferObjects.Outgoing.Topic
 {
     public class TopicDTO
     {
-        // todo delete this field
-        public Guid Id { get; set; }
-
         [Required]
         public string UserId { get; set; }
 

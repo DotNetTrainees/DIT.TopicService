@@ -8,7 +8,7 @@ using TopicService.Application.Models.DataTransferObjects.Incoming.Topic;
 using TopicService.Application.Queries.TopicQueries;
 using TopicService.Data.Entities;
 
-namespace TopicService.Api.Controllers
+namespace TopicService.Api.Controllers.V1
 {
     [ApiController]
     [ApiVersion("1.0")]

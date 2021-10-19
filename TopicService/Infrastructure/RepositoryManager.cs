@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TopicService.Infrastructure.Repositories;
+﻿using TopicService.Infrastructure.Repositories;
 
 namespace TopicService.Infrastructure
 {

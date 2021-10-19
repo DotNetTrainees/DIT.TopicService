@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TopicService.Api.Controllers
+namespace TopicService.Api.Controllers.V1
 {
     [ApiController]
     [ApiVersion("1.0")]
@@ -12,9 +13,11 @@ namespace TopicService.Api.Controllers
     [Route("v{version:apiVersion}/reply")]
     public class ReplyController : ControllerBase
     {
-        public ReplyController()
-        {
+        private readonly IMediator _mediator;
 
+        public ReplyController(IMediator mediator)
+        {
+            _mediator = mediator;
         }
     }
 }
