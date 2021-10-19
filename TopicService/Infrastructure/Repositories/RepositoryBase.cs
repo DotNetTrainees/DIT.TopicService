@@ -3,19 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using TopicService.Data.Entities;
 
 namespace TopicService.Infrastructure.Repositories
 {
-    public interface IRepositoryBase<TEntity> where TEntity : class
+    public interface IRepositoryBase<TEntity> where TEntity : class, IEntityBase
     {
         Task<TEntity> GetAsync(Guid id, CancellationToken cancellationToken);
         Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken);
-        Task<TEntity> CreateAsync(TEntity entity);
-        Task<TEntity> UpdateAsync(TEntity entity);
+        Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken);
+        Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken);
         Task DeleteAsync(Guid id, CancellationToken cancellationToken);
     }
 
-    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class
+    public abstract class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : class, IEntityBase
     {
         protected DatabaseContext _context;
 
@@ -27,7 +28,7 @@ namespace TopicService.Infrastructure.Repositories
         public async Task<TEntity> GetAsync(Guid id, CancellationToken cancellationToken)
         {
             return await _context.Set<TEntity>()
-                .FindAsync(new object[] { id } , cancellationToken);
+                .SingleOrDefaultAsync(x => x.Id == id , cancellationToken);
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken)
@@ -36,14 +37,14 @@ namespace TopicService.Infrastructure.Repositories
                 .ToListAsync(cancellationToken);
         }
 
-        public async Task<TEntity> CreateAsync(TEntity entity)
+        public async Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             _context.Set<TEntity>().Add(entity);
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
-        public async Task<TEntity> UpdateAsync(TEntity entity)
+        public async Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
             if (_context.Entry(entity).State == EntityState.Detached)
             {
@@ -51,7 +52,7 @@ namespace TopicService.Infrastructure.Repositories
             }
 
             _context.ChangeTracker.DetectChanges();
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
             return entity;
         }
 
@@ -62,7 +63,7 @@ namespace TopicService.Infrastructure.Repositories
             if (entity != null)
             {
                 _context.Set<TEntity>().Remove(entity);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(cancellationToken);
             }
         }
     }

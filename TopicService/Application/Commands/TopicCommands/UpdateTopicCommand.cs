@@ -34,7 +34,7 @@ namespace TopicService.Application.Commands.TopicCommands
 
             _mapper.Map(request.Topic, topic);
 
-            var result = await _repository.Topics.UpdateAsync(topic);
+            var result = await _repository.Topics.UpdateAsync(topic, cancellationToken);
 
             return result;
         }

@@ -33,11 +33,11 @@ namespace TopicService.Api.Controllers
 
         [HttpGet("get/{id}")]
         [ServiceFilter(typeof(ValidateEntityExistsFilter<Topic>))]
-        public async Task<IActionResult> Get(Guid id)
+        public async Task<IActionResult> Get(Guid? id)
         {
             var result = await _mediator.Send(new GetTopicQuery
             {
-                Id = id
+                Id = (Guid)id
             });
 
             return Ok(result);
@@ -58,12 +58,12 @@ namespace TopicService.Api.Controllers
 
         [HttpDelete("delete/{id}")]
         [ServiceFilter(typeof(ValidateEntityExistsFilter<Topic>))]
-        public async Task<IActionResult> Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid? id)
         {
             var result = await _mediator.Send(
                 new DeleteTopicCommand
                 {
-                    Id = id
+                    Id = (Guid)id
                 });
 
             return Ok(result);
@@ -72,12 +72,12 @@ namespace TopicService.Api.Controllers
         [HttpPut("update/{id}")]
         [ServiceFilter(typeof(ValidateModelFilter))]
         [ServiceFilter(typeof(ValidateEntityExistsFilter<Topic>))]
-        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTopicDTO dto)
+        public async Task<IActionResult> Update(Guid? id, [FromBody] UpdateTopicDTO dto)
         {
             var result = await _mediator.Send(
                 new UpdateTopicCommand
                 {
-                    Id = id,
+                    Id = (Guid)id,
                     Topic = dto
                 });
 

@@ -18,9 +18,12 @@ namespace TopicService.Api.Filters
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            Guid id;
+            Guid? id = null;
+
             if (context.ActionArguments.ContainsKey("id"))
-                id = (Guid)context.ActionArguments["id"];
+            {
+                id = (Guid?)context.ActionArguments["id"];
+            }
             else
             {
                 context.Result = new BadRequestObjectResult("Bad id parameter");
@@ -33,7 +36,9 @@ namespace TopicService.Api.Filters
                 return;
             }
 
-            var entity = _context.Set<TEntity>().SingleOrDefault(x => x.Id == id);
+            var entity = _context.Set<TEntity>()
+                .SingleOrDefault(x => x.Id == id);
+
             if (entity == null)
             {
                 context.Result = new NotFoundResult();

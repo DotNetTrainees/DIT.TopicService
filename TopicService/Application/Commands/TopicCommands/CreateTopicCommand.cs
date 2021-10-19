@@ -27,7 +27,7 @@ namespace TopicService.Application.Commands.TopicCommands
         public async Task<Topic> Handle(CreateTopicCommand request, CancellationToken cancellationToken)
         {
             var topic = _mapper.Map<Topic>(request.Topic);
-            return await _repository.Topics.CreateAsync(topic);
+            return await _repository.Topics.CreateAsync(topic, cancellationToken);
         }
     }
 }
