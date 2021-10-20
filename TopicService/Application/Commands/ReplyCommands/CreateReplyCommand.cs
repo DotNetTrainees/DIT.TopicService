@@ -32,13 +32,7 @@ namespace TopicService.Application.Commands.ReplyCommands
             reply.Id = Guid.NewGuid();
             reply.Date = DateTime.Now;
 
-            var result = await _repository.Replies.CreateAsync(reply, cancellationToken);
-
-            var topic = await _repository.Topics.GetAsync(reply.TopicId, cancellationToken);
-            topic.ReplyCount++;
-            await _repository.Topics.UpdateAsync(topic, cancellationToken);
-
-            return result;
+            return await _repository.Replies.CreateAsync(reply, cancellationToken);
         }
     }
 }

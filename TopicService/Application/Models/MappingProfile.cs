@@ -13,7 +13,8 @@ namespace TopicService.Application.Models
         {
             CreateMap<CreateTopicDTO, Topic>();
             CreateMap<UpdateTopicDTO, Topic>();
-            CreateMap<Topic, TopicDTO>();
+            CreateMap<Topic, TopicDTO>()
+                .ForMember(x => x.ReplyCount, opt => opt.MapFrom(y => y.Replies.Count));
 
             CreateMap<CreateReplyDTO, Reply>();
             CreateMap<UpdateReplyDTO, Reply>();

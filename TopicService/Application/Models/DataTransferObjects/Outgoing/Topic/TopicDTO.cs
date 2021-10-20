@@ -17,6 +17,9 @@ namespace TopicService.Application.Models.DataTransferObjects.Outgoing.Topic
         public string Text { get; set; }
 
         [Required]
+        public int ReplyCount { get; set; }
+
+        [Required]
         public DateTime Date { get; set; }
     }
 }

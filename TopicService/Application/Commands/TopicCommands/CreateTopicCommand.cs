@@ -31,7 +31,6 @@ namespace TopicService.Application.Commands.TopicCommands
 
             topic.Id = Guid.NewGuid();
             topic.Date = DateTime.Now;
-            topic.ReplyCount = 0;
 
             return await _repository.Topics.CreateAsync(topic, cancellationToken);
         }

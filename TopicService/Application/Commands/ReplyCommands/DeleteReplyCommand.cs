@@ -22,13 +22,7 @@ namespace TopicService.Application.Commands.ReplyCommands
 
         public async Task<Unit> Handle(DeleteReplyCommand request, CancellationToken cancellationToken)
         {
-            var reply = await _repository.Replies.GetAsync(request.Id, cancellationToken);
-            var topic = await _repository.Topics.GetAsync(reply.TopicId, cancellationToken);
-
             await _repository.Replies.DeleteAsync(request.Id, cancellationToken);
-
-            topic.ReplyCount--;
-            await _repository.Topics.UpdateAsync(topic, cancellationToken);
 
             return Unit.Value;
         }

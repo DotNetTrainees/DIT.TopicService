@@ -26,8 +26,9 @@ namespace TopicService.Application.Queries.TopicQueries
 
         public async Task<IEnumerable<TopicDTO>> Handle(GetAllTopicQuery request, CancellationToken cancellationToken)
         {
-            var result = await _repository.Topics.GetAllAsync(cancellationToken);
-            return _mapper.Map<IEnumerable<TopicDTO>>(result);
+            var topic = await _repository.Topics.GetAllAsync(cancellationToken);
+
+            return _mapper.Map<IEnumerable<TopicDTO>>(topic);
         }
     }
 }

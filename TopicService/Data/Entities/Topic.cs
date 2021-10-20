@@ -13,9 +13,6 @@ namespace TopicService.Data.Entities
         [MaxLength(1000, ErrorMessage = "Text must be 1000 characters or less")]
         public string Text { get; set; }
 
-        [Required]
-        public int ReplyCount { get; set; } = 0;
-
-        public IEnumerable<Reply> Replies { get; set; }
+        public List<Reply> Replies { get; set; }
     }
 }

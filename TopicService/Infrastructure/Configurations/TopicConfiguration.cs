@@ -16,8 +16,7 @@ namespace TopicService.Infrastructure.Configurations
                     UserId = Guid.NewGuid(), 
                     Title = "test_title", 
                     Text = "test_text", 
-                    Date = DateTime.Now, 
-                    ReplyCount = 0
+                    Date = DateTime.Now
                 });
         }
     }

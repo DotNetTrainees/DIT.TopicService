@@ -15,8 +15,7 @@ namespace TopicService.Infrastructure.Migrations
                     UserId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(maxLength: 30, nullable: false),
-                    Text = table.Column<string>(maxLength: 1000, nullable: false),
-                    ReplyCount = table.Column<int>(nullable: false)
+                    Text = table.Column<string>(maxLength: 1000, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -46,8 +45,8 @@ namespace TopicService.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Topics",
-                columns: new[] { "Id", "Date", "ReplyCount", "Text", "Title", "UserId" },
-                values: new object[] { new Guid("217fb2d7-af87-4d08-9921-108155d7a048"), new DateTime(2021, 10, 20, 19, 32, 12, 880, DateTimeKind.Local).AddTicks(8634), 0, "test_text", "test_title", new Guid("9ccf8317-3109-47d3-b0f8-704a55849f2a") });
+                columns: new[] { "Id", "Date", "Text", "Title", "UserId" },
+                values: new object[] { new Guid("c5f9ee8a-fa5f-44f4-8588-1603e2779dde"), new DateTime(2021, 10, 20, 20, 18, 14, 749, DateTimeKind.Local).AddTicks(7448), "test_text", "test_title", new Guid("bb8bd21b-0582-46e4-8ab5-2eb714720388") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Replies_TopicId",

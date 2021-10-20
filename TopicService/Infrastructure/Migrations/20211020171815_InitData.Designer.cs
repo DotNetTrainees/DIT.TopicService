@@ -10,7 +10,7 @@ using TopicService.Infrastructure;
 namespace TopicService.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20211020163217_InitData")]
+    [Migration("20211020171815_InitData")]
     partial class InitData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,9 +57,6 @@ namespace TopicService.Infrastructure.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ReplyCount")
-                        .HasColumnType("int");
-
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(1000)")
@@ -80,12 +77,11 @@ namespace TopicService.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("217fb2d7-af87-4d08-9921-108155d7a048"),
-                            Date = new DateTime(2021, 10, 20, 19, 32, 12, 880, DateTimeKind.Local).AddTicks(8634),
-                            ReplyCount = 0,
+                            Id = new Guid("c5f9ee8a-fa5f-44f4-8588-1603e2779dde"),
+                            Date = new DateTime(2021, 10, 20, 20, 18, 14, 749, DateTimeKind.Local).AddTicks(7448),
                             Text = "test_text",
                             Title = "test_title",
-                            UserId = new Guid("9ccf8317-3109-47d3-b0f8-704a55849f2a")
+                            UserId = new Guid("bb8bd21b-0582-46e4-8ab5-2eb714720388")
                         });
                 });
 
