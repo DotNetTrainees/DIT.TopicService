@@ -3,7 +3,7 @@ using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using TopicService.Application.Models.DataTransferObjects.Outgoing.Reply;
+using TopicService.Infrastructure.Models.DataTransferObjects.Outgoing.Reply;
 using TopicService.Infrastructure;
 
 namespace TopicService.Application.Queries.ReplyQueries

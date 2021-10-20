@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using System.Net;
-using TopicService.Application.Models;
+using TopicService.Infrastructure.Models;
 
 namespace TopicService.Api.Extensions
 {

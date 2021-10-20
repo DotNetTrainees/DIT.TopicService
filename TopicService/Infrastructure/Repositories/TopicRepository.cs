@@ -1,4 +1,5 @@
-﻿using TopicService.Data.Entities;
+﻿using TopicService.Data;
+using TopicService.Data.Entities;
 
 namespace TopicService.Infrastructure.Repositories
 {

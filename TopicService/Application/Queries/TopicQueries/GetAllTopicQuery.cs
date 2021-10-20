@@ -3,7 +3,7 @@ using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using TopicService.Application.Models.DataTransferObjects.Outgoing.Topic;
+using TopicService.Infrastructure.Models.DataTransferObjects.Outgoing.Topic;
 using TopicService.Infrastructure;
 
 namespace TopicService.Application.Queries.TopicQueries

@@ -4,7 +4,8 @@ using System;
 using System.Threading.Tasks;
 using TopicService.Api.Filters;
 using TopicService.Application.Commands.ReplyCommands;
-using TopicService.Application.Models.DataTransferObjects.Incoming.Reply;
+using TopicService.Infrastructure.Models.DataTransferObjects.Incoming.Reply;
+using TopicService.Infrastructure.Models.RequestFeatures.Reply;
 using TopicService.Application.Queries.ReplyQueries;
 using TopicService.Data.Entities;
 
@@ -24,7 +25,7 @@ namespace TopicService.Api.Controllers.V1
         }
 
         [HttpGet("get-all")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] ReplyParameters parameters)
         {
             var result = await _mediator.Send(new GetAllReplyQuery());
 

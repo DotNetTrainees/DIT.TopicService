@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Linq;
+using TopicService.Data;
 using TopicService.Data.Entities;
-using TopicService.Infrastructure;
 
 namespace TopicService.Api.Filters
 {
