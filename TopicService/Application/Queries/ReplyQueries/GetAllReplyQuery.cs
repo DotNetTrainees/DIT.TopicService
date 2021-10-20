@@ -11,7 +11,7 @@ namespace TopicService.Application.Queries.ReplyQueries
 {
     public class GetAllReplyQuery : IRequest<IEnumerable<ReplyDTO>>
     {
-        public Guid TopicId { get; set; }
+
     }
 
     public class GetAllReplyQueryHandler : IRequestHandler<GetAllReplyQuery, IEnumerable<ReplyDTO>>
@@ -27,7 +27,7 @@ namespace TopicService.Application.Queries.ReplyQueries
 
         public async Task<IEnumerable<ReplyDTO>> Handle(GetAllReplyQuery request, CancellationToken cancellationToken)
         {
-            var result = await _repository.Replies.GetByConditionAsync(x => x.TopicId == request.TopicId, cancellationToken);
+            var result = await _repository.Replies.GetAllAsync(cancellationToken);
             return _mapper.Map<IEnumerable<ReplyDTO>>(result);
         }
     }

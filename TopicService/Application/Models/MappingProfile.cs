@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System.Linq;
 using TopicService.Application.Models.DataTransferObjects.Incoming.Reply;
 using TopicService.Application.Models.DataTransferObjects.Incoming.Topic;
 using TopicService.Application.Models.DataTransferObjects.Outgoing.Reply;
@@ -14,7 +15,7 @@ namespace TopicService.Application.Models
             CreateMap<CreateTopicDTO, Topic>();
             CreateMap<UpdateTopicDTO, Topic>();
             CreateMap<Topic, TopicDTO>()
-                .ForMember(x => x.ReplyCount, opt => opt.MapFrom(y => y.Replies.Count));
+                .ForMember(x => x.ReplyCount, opt => opt.MapFrom(y => y.Replies.Count()));
 
             CreateMap<CreateReplyDTO, Reply>();
             CreateMap<UpdateReplyDTO, Reply>();
