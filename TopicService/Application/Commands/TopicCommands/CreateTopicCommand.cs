@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 using TopicService.Application.Models.DataTransferObjects.Incoming.Topic;
@@ -27,6 +28,10 @@ namespace TopicService.Application.Commands.TopicCommands
         public async Task<Topic> Handle(CreateTopicCommand request, CancellationToken cancellationToken)
         {
             var topic = _mapper.Map<Topic>(request.Topic);
+
+            topic.Id = Guid.NewGuid();
+            topic.Date = DateTime.Now;
+
             return await _repository.Topics.CreateAsync(topic, cancellationToken);
         }
     }

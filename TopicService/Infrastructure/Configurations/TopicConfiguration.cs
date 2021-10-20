@@ -13,7 +13,7 @@ namespace TopicService.Infrastructure.Configurations
                 new Topic 
                 { 
                     Id = Guid.NewGuid(), 
-                    UserId = "test_user", 
+                    UserId = Guid.NewGuid(), 
                     Title = "test_title", 
                     Text = "test_text", 
                     Date = DateTime.Now, 

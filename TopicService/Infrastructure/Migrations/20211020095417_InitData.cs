@@ -12,7 +12,7 @@ namespace TopicService.Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(maxLength: 30, nullable: false),
                     Text = table.Column<string>(maxLength: 1000, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
@@ -29,7 +29,7 @@ namespace TopicService.Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     TopicId = table.Column<Guid>(nullable: false),
-                    UserId = table.Column<string>(nullable: false),
+                    UserId = table.Column<Guid>(nullable: false),
                     Text = table.Column<string>(maxLength: 1000, nullable: false),
                     Date = table.Column<DateTime>(nullable: false)
                 },
@@ -47,7 +47,7 @@ namespace TopicService.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Topics",
                 columns: new[] { "Id", "Date", "ReplyCount", "Text", "Title", "UserId" },
-                values: new object[] { new Guid("62defcec-c6d0-4f90-a980-f463a845a6ec"), new DateTime(2021, 10, 17, 2, 6, 1, 740, DateTimeKind.Local).AddTicks(5106), 0, "test_text", "test_title", "test_user" });
+                values: new object[] { new Guid("86b18f6e-d30a-41da-8d3b-c5073ab4cf94"), new DateTime(2021, 10, 20, 12, 54, 16, 805, DateTimeKind.Local).AddTicks(9420), 0, "test_text", "test_title", new Guid("c93ff998-3395-43cb-a7e8-83fafb915f11") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Replies_TopicId",

@@ -10,7 +10,7 @@ using TopicService.Infrastructure;
 namespace TopicService.Infrastructure.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20211016230602_InitData")]
+    [Migration("20211020095417_InitData")]
     partial class InitData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,9 +38,8 @@ namespace TopicService.Infrastructure.Migrations
                     b.Property<Guid>("TopicId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -71,9 +70,8 @@ namespace TopicService.Infrastructure.Migrations
                         .HasColumnType("nvarchar(30)")
                         .HasMaxLength(30);
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -82,12 +80,12 @@ namespace TopicService.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("62defcec-c6d0-4f90-a980-f463a845a6ec"),
-                            Date = new DateTime(2021, 10, 17, 2, 6, 1, 740, DateTimeKind.Local).AddTicks(5106),
+                            Id = new Guid("86b18f6e-d30a-41da-8d3b-c5073ab4cf94"),
+                            Date = new DateTime(2021, 10, 20, 12, 54, 16, 805, DateTimeKind.Local).AddTicks(9420),
                             ReplyCount = 0,
                             Text = "test_text",
                             Title = "test_title",
-                            UserId = "test_user"
+                            UserId = new Guid("c93ff998-3395-43cb-a7e8-83fafb915f11")
                         });
                 });
 

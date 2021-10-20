@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace TopicService.Application.Models.DataTransferObjects.Incoming.Reply
 {
-    class UpdateReplyDTO
+    public class UpdateReplyDTO
     {
+        [Required]
+        [MaxLength(1000, ErrorMessage = "Text must be 1000 characters or less")]
+        public string Text { get; set; }
     }
 }

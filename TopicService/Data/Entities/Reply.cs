@@ -9,7 +9,7 @@ namespace TopicService.Data.Entities
         public Topic Topic { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [Required]
         [MaxLength(1000, ErrorMessage = "Text must be 1000 characters or less")]

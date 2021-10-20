@@ -6,7 +6,7 @@ namespace TopicService.Application.Models.DataTransferObjects.Outgoing.Topic
     public class TopicDTO
     {
         [Required]
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
 
         [Required]
         [MaxLength(30, ErrorMessage = "Title must be 30 characters or less")]
