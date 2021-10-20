@@ -6,6 +6,9 @@ namespace TopicService.Application.Models.DataTransferObjects.Incoming.Reply
     public class CreateReplyDTO
     {
         [Required]
+        public Guid TopicId { get; set; }
+
+        [Required]
         public Guid UserId { get; set; }
 
         [Required]

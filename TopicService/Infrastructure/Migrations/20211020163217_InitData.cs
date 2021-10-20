@@ -47,7 +47,7 @@ namespace TopicService.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Topics",
                 columns: new[] { "Id", "Date", "ReplyCount", "Text", "Title", "UserId" },
-                values: new object[] { new Guid("48e387dc-42d5-4ef4-96b8-1c029b160e01"), new DateTime(2021, 10, 20, 13, 40, 39, 690, DateTimeKind.Local).AddTicks(5052), 0, "test_text", "test_title", new Guid("e888235a-36ba-4cdc-9f98-c7179ac8298f") });
+                values: new object[] { new Guid("217fb2d7-af87-4d08-9921-108155d7a048"), new DateTime(2021, 10, 20, 19, 32, 12, 880, DateTimeKind.Local).AddTicks(8634), 0, "test_text", "test_title", new Guid("9ccf8317-3109-47d3-b0f8-704a55849f2a") });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Replies_TopicId",

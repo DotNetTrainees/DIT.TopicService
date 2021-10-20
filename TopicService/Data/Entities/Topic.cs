@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TopicService.Data.Entities
@@ -15,7 +14,7 @@ namespace TopicService.Data.Entities
         public string Text { get; set; }
 
         [Required]
-        public int ReplyCount { get; set; }
+        public int ReplyCount { get; set; } = 0;
 
         public IEnumerable<Reply> Replies { get; set; }
     }

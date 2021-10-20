@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using TopicService.Data.Entities;
@@ -10,6 +12,7 @@ namespace TopicService.Infrastructure.Repositories
     public interface IRepositoryBase<TEntity> where TEntity : class, IEntityBase
     {
         Task<TEntity> GetAsync(Guid id, CancellationToken cancellationToken);
+        Task<IEnumerable<TEntity>> GetByConditionAsync(Expression<Func<TEntity, bool>> expression, CancellationToken cancellationToken);
         Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken);
         Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken);
         Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken);
@@ -29,6 +32,13 @@ namespace TopicService.Infrastructure.Repositories
         {
             return await _context.Set<TEntity>()
                 .SingleOrDefaultAsync(x => x.Id == id , cancellationToken);
+        }
+
+        public async Task<IEnumerable<TEntity>> GetByConditionAsync(Expression<Func<TEntity, bool>> expression, CancellationToken cancellationToken)
+        {
+            return await _context.Set<TEntity>()
+                .Where(expression)
+                .ToListAsync(cancellationToken);
         }
 
         public async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken)

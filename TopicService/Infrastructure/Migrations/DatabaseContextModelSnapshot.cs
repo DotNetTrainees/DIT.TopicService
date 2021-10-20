@@ -78,12 +78,12 @@ namespace TopicService.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("48e387dc-42d5-4ef4-96b8-1c029b160e01"),
-                            Date = new DateTime(2021, 10, 20, 13, 40, 39, 690, DateTimeKind.Local).AddTicks(5052),
+                            Id = new Guid("217fb2d7-af87-4d08-9921-108155d7a048"),
+                            Date = new DateTime(2021, 10, 20, 19, 32, 12, 880, DateTimeKind.Local).AddTicks(8634),
                             ReplyCount = 0,
                             Text = "test_text",
                             Title = "test_title",
-                            UserId = new Guid("e888235a-36ba-4cdc-9f98-c7179ac8298f")
+                            UserId = new Guid("9ccf8317-3109-47d3-b0f8-704a55849f2a")
                         });
                 });
 
