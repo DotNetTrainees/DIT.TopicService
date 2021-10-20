@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using TopicService.Application.Services;
 
 namespace TopicService.Application.Extensions
 {

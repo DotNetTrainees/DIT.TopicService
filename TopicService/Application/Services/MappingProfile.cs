@@ -6,7 +6,7 @@ using TopicService.Infrastructure.Models.DataTransferObjects.Outgoing.Reply;
 using TopicService.Infrastructure.Models.DataTransferObjects.Outgoing.Topic;
 using TopicService.Data.Entities;
 
-namespace TopicService.Application
+namespace TopicService.Application.Services
 {
     public class MappingProfile : Profile
     {
