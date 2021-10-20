@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using TopicService.Application.Models;
 
-namespace TopicService.Application
+namespace TopicService.Application.Extensions
 {
     public static class ServiceCollectionExtensions
     {

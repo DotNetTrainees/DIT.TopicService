@@ -3,7 +3,7 @@ using Microsoft.OpenApi.Models;
 using TopicService.Api.Filters;
 using TopicService.Data.Entities;
 
-namespace TopicService.Api
+namespace TopicService.Api.Extensions
 {
     public static class ServiceCollectionExtensions
     {

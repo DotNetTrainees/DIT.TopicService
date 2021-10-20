@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TopicService.Infrastructure
+namespace TopicService.Infrastructure.Extensions
 {
     public static class ServiceCollectionExtensions
     {
