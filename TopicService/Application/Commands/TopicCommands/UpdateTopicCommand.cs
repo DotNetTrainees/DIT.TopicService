@@ -28,7 +28,7 @@ namespace TopicService.Application.Commands.TopicCommands
         }
         public async Task<Topic> Handle(UpdateTopicCommand request, CancellationToken cancellationToken)
         {
-            var topic = await _repository.Topics.GetAsync(request.Id, cancellationToken);
+            var topic = await _repository.Topics.GetTopicByIdAsync(request.Id, true);
 
             _mapper.Map(request.Topic, topic);
 

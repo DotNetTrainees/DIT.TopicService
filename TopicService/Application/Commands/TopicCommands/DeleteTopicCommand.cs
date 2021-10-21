@@ -22,7 +22,8 @@ namespace TopicService.Application.Commands.TopicCommands
 
         public async Task<Unit> Handle(DeleteTopicCommand request, CancellationToken cancellationToken)
         {
-            await _repository.Topics.DeleteAsync(request.Id, cancellationToken);
+            var result = await _repository.Topics.GetTopicByIdAsync(request.Id, true);
+            await _repository.Topics.DeleteAsync(result, cancellationToken);
             return Unit.Value;
         }
     }

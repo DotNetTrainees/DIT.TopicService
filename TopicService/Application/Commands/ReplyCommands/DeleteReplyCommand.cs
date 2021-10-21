@@ -22,8 +22,8 @@ namespace TopicService.Application.Commands.ReplyCommands
 
         public async Task<Unit> Handle(DeleteReplyCommand request, CancellationToken cancellationToken)
         {
-            await _repository.Replies.DeleteAsync(request.Id, cancellationToken);
-
+            var result = await _repository.Replies.GetReplyByIdAsync(request.Id, true);
+            await _repository.Replies.DeleteAsync(result, cancellationToken);
             return Unit.Value;
         }
     }

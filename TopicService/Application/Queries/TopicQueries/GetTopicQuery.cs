@@ -26,7 +26,7 @@ namespace TopicService.Application.Queries.TopicQueries
 
         public async Task<TopicDTO> Handle(GetTopicQuery request, CancellationToken cancellationToken)
         {
-            var result = await _repository.Topics.GetAsync(request.Id, cancellationToken);
+            var result = await _repository.Topics.GetTopicByIdAsync(request.Id, false);
             return _mapper.Map<TopicDTO>(result);
         }
     }

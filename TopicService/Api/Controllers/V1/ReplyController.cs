@@ -24,10 +24,14 @@ namespace TopicService.Api.Controllers.V1
             _mediator = mediator;
         }
 
-        [HttpGet("get-all")]
-        public async Task<IActionResult> GetAll([FromQuery] ReplyParameters parameters)
+        [HttpGet("get-by-topic/{topicId}")]
+        public async Task<IActionResult> GetByTopic(Guid? topicId, [FromQuery] ReplyParameters parameters)
         {
-            var result = await _mediator.Send(new GetAllReplyQuery());
+            var result = await _mediator.Send(new GetRepliesByTopicQuery
+            {
+                Parameters = parameters,
+                TopicId = (Guid)topicId
+            });
 
             return Ok(result);
         }

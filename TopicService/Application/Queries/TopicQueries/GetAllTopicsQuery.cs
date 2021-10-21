@@ -5,28 +5,29 @@ using System.Threading;
 using System.Threading.Tasks;
 using TopicService.Infrastructure.Models.DataTransferObjects.Outgoing.Topic;
 using TopicService.Infrastructure;
+using TopicService.Infrastructure.Models.RequestFeatures.Topic;
 
 namespace TopicService.Application.Queries.TopicQueries
 {
-    public class GetAllTopicQuery : IRequest<IEnumerable<TopicDTO>>
+    public class GetAllTopicsQuery : IRequest<IEnumerable<TopicDTO>>
     {
-
+        public TopicParameters Parameters { get; set; }
     }
 
-    public class GetAllTopicQueryHandler : IRequestHandler<GetAllTopicQuery, IEnumerable<TopicDTO>>
+    public class GetAllTopicsQueryHandler : IRequestHandler<GetAllTopicsQuery, IEnumerable<TopicDTO>>
     {
         private readonly IRepositoryManager _repository;
         private readonly IMapper _mapper;
 
-        public GetAllTopicQueryHandler(IRepositoryManager repository, IMapper mapper)
+        public GetAllTopicsQueryHandler(IRepositoryManager repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<TopicDTO>> Handle(GetAllTopicQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<TopicDTO>> Handle(GetAllTopicsQuery request, CancellationToken cancellationToken)
         {
-            var topic = await _repository.Topics.GetAllAsync(cancellationToken);
+            var topic = await _repository.Topics.GetAllTopicAsync(request.Parameters, false);
 
             return _mapper.Map<IEnumerable<TopicDTO>>(topic);
         }

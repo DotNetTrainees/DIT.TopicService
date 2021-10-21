@@ -28,7 +28,7 @@ namespace TopicService.Application.Commands.ReplyCommands
         }
         public async Task<Reply> Handle(UpdateReplyCommand request, CancellationToken cancellationToken)
         {
-            var reply = await _repository.Replies.GetAsync(request.Id, cancellationToken);
+            var reply = await _repository.Replies.GetReplyByIdAsync(request.Id, true);
 
             _mapper.Map(request.Reply, reply);
 

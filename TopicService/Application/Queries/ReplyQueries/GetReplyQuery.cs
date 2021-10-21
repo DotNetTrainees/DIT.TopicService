@@ -13,12 +13,12 @@ namespace TopicService.Application.Queries.ReplyQueries
         public Guid Id { get; set; }
     }
 
-    public class GetReplyQueryQuery : IRequestHandler<GetReplyQuery, ReplyDTO>
+    public class GetReplyQueryHandler : IRequestHandler<GetReplyQuery, ReplyDTO>
     {
         private readonly IRepositoryManager _repository;
         private readonly IMapper _mapper;
 
-        public GetReplyQueryQuery(IRepositoryManager repository, IMapper mapper)
+        public GetReplyQueryHandler(IRepositoryManager repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -26,7 +26,7 @@ namespace TopicService.Application.Queries.ReplyQueries
 
         public async Task<ReplyDTO> Handle(GetReplyQuery request, CancellationToken cancellationToken)
         {
-            var result = await _repository.Replies.GetAsync(request.Id, cancellationToken);
+            var result = await _repository.Replies.GetReplyByIdAsync(request.Id, false);
             return _mapper.Map<ReplyDTO>(result);
         }
     }

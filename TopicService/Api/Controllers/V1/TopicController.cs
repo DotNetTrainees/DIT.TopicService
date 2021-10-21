@@ -27,7 +27,10 @@ namespace TopicService.Api.Controllers.V1
         [HttpGet("get-all")]
         public async Task<IActionResult> GetAll([FromQuery] TopicParameters parameters)
         {
-            var result = await _mediator.Send(new GetAllTopicQuery());
+            var result = await _mediator.Send(new GetAllTopicsQuery
+            {
+                Parameters = parameters
+            });
 
             return Ok(result);
         }
