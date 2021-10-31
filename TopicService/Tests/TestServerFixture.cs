@@ -9,7 +9,6 @@ namespace TopicService.Tests
 {
     public class TestServerFixture
     {
-        public TestServer TestServer { get; }
         public HttpClient Client { get; }
 
         public TestServerFixture()
@@ -22,14 +21,13 @@ namespace TopicService.Tests
                 .UseConfiguration(builder.Build())
                 .UseStartup<Startup>();
 
-            TestServer = new TestServer(webBuilder);
-            Client = TestServer.CreateClient();
+            Client = new TestServer(webBuilder)
+                .CreateClient();
         }
 
         public void Dispose()
         {
             Client.Dispose();
-            TestServer.Dispose();
         }
     }
 }
