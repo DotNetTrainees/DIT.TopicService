@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TopicService.Tests.Unit.Controllers
 {
-    class TopicControllerTest
+    public class TopicControllerTest
     {
     }
 }
