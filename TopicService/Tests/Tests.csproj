@@ -42,9 +42,4 @@
     <ProjectReference Include="..\Api\Api.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Unit\Controllers\" />
-    <Folder Include="Unit\Repositories\" />
-  </ItemGroup>
-
 </Project>

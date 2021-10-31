@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Threading.Tasks;
+using TopicService.Data.Entities;
 using Xunit;
 
 namespace TopicService.Tests.Integration
